@@ -42,7 +42,9 @@ export default async function handler(req, res) {
                 setCookie('token', token, {
                     req,
                     res,
-                    httpOnly: true
+                    httpOnly: true,
+                    secure: true,
+                    maxAge: 100 * 24 * 3600
                 })
 
                 res.status(200).json({

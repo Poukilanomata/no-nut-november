@@ -24,7 +24,9 @@ export default async function handler(req, res) {
             setCookie('token', jwt.sign({userid: user._id}, process.env.SECRET_JWT), {
                 req,
                 res,
-                httpOnly: true
+                httpOnly: true,
+                secure: true,
+                maxAge: 100 * 24 * 3600
             })
 
             res.status(200).json({

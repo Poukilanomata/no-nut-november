@@ -21,14 +21,16 @@ import Emperor from '../public/images/emperor.png'
 import Sensei from '../public/images/sensei.png'
 import Master from '../public/images/master.png'
 import Jedi from '../public/images/jedi.png'
+
 import Award from '../utils/awards';
+
 import { toast, ToastContainer } from 'react-toastify'
 import { getSuccess, getUser, toastAll } from '../utils/functions'
-import Countdown from 'react-countdown'
 import {BsCheckCircleFill} from 'react-icons/bs'
 
 import 'react-toastify/dist/ReactToastify.css'
 import { useUserQuery } from '../hooks/useUser'
+import Account from '../utils/accountSchema';
 
 axios.defaults.withCredentials = true
 
@@ -93,7 +95,17 @@ const awards = {
     },
 }
 
-const Header = ({scrollToMain}, ref) => {
+function Stat({tt_users}) {
+    return (
+        <>
+        <div className={open.stat_users}>
+            <span>{tt_users} soldiers</span>
+        </div>
+        </>
+    )
+}
+
+const Header = ({scrollToMain, tt_users}, ref) => {
 
     const [height, setHeight] = useState('100vh')
 
@@ -121,6 +133,8 @@ const Header = ({scrollToMain}, ref) => {
                     }}
                 />
             </span>
+            
+            <Stat tt_users={tt_users}/>
 
             <div className={open.bottom_arrow} onClick={() => {
                 scrollToMain()
@@ -173,7 +187,7 @@ function SignIn() {
     return(
         <>
             <h3 className={login.title}>Welcome back soldier !</h3>
-            <input type='text' placeholder='Name...' minLength={3} maxLength={20} 
+            <input type='text' placeholder='Username...' minLength={3} maxLength={20} 
                 onChange={(e) => setName(e.target.value)}
             />
             <input type='password' placeholder='Password...' minLength={6} maxLength={50}
@@ -230,7 +244,7 @@ function SignUp() {
     return(
         <>
             <h3 className={login.title}>Join the nnn legion</h3>
-            <input type='text' placeholder='Name...' minLength={3} maxLength={20} 
+            <input type='text' placeholder='Username...' minLength={3} maxLength={20} 
                 onChange={(e) => setName(e.target.value)}
             />
             <input type='password' placeholder='Password...' minLength={6} maxLength={50}
@@ -304,6 +318,17 @@ function Footer() {
 }
 
 
+export async function getStaticProps() {
+    let tt_users = await Account.countDocuments({})
+    return{
+        props: {
+            tt_users
+        },
+        
+        revalidate: 60
+    }
+}
+
 export default function Home(props) {
     let mainRef = useRef(null)
 
@@ -342,7 +367,7 @@ export default function Home(props) {
                 <meta name='description' content='No Nut November - Enter the legion !'/>
             </Head>
 
-            <Header scrollToMain={scrollToMain}/>
+            <Header scrollToMain={scrollToMain} tt_users={props.tt_users}/>
             <Main data={props} ref={mainRef}/>
 
             {Date.now()/1000 > 1667257200?
