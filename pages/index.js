@@ -31,6 +31,7 @@ import {BsCheckCircleFill} from 'react-icons/bs'
 import 'react-toastify/dist/ReactToastify.css'
 import { useUserQuery } from '../hooks/useUser'
 import Account from '../utils/accountSchema';
+import connectMongo from '../utils/connectMongo';
 
 axios.defaults.withCredentials = true
 
@@ -319,6 +320,7 @@ function Footer() {
 
 
 export async function getStaticProps() {
+    await connectMongo()
     let tt_users = await Account.countDocuments({})
     return{
         props: {
