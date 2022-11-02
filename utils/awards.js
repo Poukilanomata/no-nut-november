@@ -22,8 +22,8 @@ function Main({content}) {
 function Footer(props) {
     return(
         <div className={award.footer}>
-            <span>30%</span>
-            <span>2145 people</span>
+            <span>- %</span>
+            <span>- people</span>
         </div>
     )
 }
@@ -38,7 +38,41 @@ export default function Award({
         <div className={award.container}>
             <Top img_url={img_url} title={title} day={day}/>
             <Main content={content} />
-            <Footer/>
+            <Footer />
         </div>
     )
 }
+
+/*
+export async function getStaticProps() {
+    await connectMongo()
+    var awards_stat = {}
+    let tt_users = await Account.countDocuments({})
+    
+    for (const k in awards) {
+        if (awards.hasOwnProperty.call(awards, k)) {
+            const a = awards[k]
+            const number = await Account.countDocuments({
+                awards: {
+                    $elemMatch: {
+                        a
+                    }
+                }
+            })
+
+            awards_stat[k] = {
+                'percentage': Math.floor(number*100/tt_users),
+                'number': number
+            }
+        }
+    }
+    
+    return{
+        props: {
+            tt_users,
+            awards_stat
+        },
+        
+        revalidate: 60
+    }
+}*/

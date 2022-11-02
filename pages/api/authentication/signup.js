@@ -26,8 +26,9 @@ export default async function handler(req, res) {
         let new_user = new Account({
             name: name,
             password: bcrypt.hashSync(pwd, 8),
-            last_validation: Date.now(),
-            awards: []
+            last_validation: 1667257200,
+            awards: [],
+            fails_dates: [1667257200]
         })
 
         new_user.save((err, user) => {
