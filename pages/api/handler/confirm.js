@@ -45,7 +45,7 @@ export default async function handler(req, res) {
         console.log(get_award(Date.now()/1000, user.fails_dates[user.fails_dates.length - 1]))
         await Account.updateOne({_id: decoded.userid}, {
             $set: {
-                last_validation: Date.now(),
+                last_validation: Date.now()/1000,
                 awards: get_award(Date.now()/1000, user.fails_dates[user.fails_dates.length - 1])
             }  
         })
