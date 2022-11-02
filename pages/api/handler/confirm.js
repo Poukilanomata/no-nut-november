@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
         for (let i = 0; i < keys.length; i++) {
             const key = keys[i]
-            
+
             if(awards[key].day === days) {
                 console.log(key)
                 return key 
@@ -57,10 +57,8 @@ export default async function handler(req, res) {
 
     } else if(req.body.holding === false) {
         await Account.updateOne({_id: decoded.userid}, {
-            fails: {
-                $push: {
-                    dates: Date.now()
-                }
+            $push: {
+                fails_dates: Math.floor(Date.now()/1000)
             }
         })
         res.status(200).json({
