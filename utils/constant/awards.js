@@ -8,6 +8,11 @@ import Emperor from '../../public/images/emperor.png'
 import Sensei from '../../public/images/sensei.png'
 import Master from '../../public/images/master.png'
 import Jedi from '../../public/images/jedi.png'
+import JediMaster from '../../public/images/jedi master.png'
+import SorcererSupreme from '../../public/images/sorcerer supreme.png'
+import Colossus from '../../public/images/colossus.png'
+import Hercules from '../../public/images/hercules.png'
+import Buddha from '../../public/images/buddha.png'
 
 const awards =  {
     'Soldier': {
@@ -52,17 +57,49 @@ const awards =  {
         description: "You've been promoted to Sensei! \nDon't you feel that something is different... Yes... An aura of wisdom surrounds you Sensei. It's BIG BRAIN TIME !"
     },
 
-    'Master': {
+    'Padawan': {
         image: Master,
         day: 21,
-        description: "You've been promoted to Master! \nBravo ... really bravo ... 21 days, you deserve your master rank. After resisting for so long you should have developed some skills that will help you with the women .... No ? That means you're getting sloppy! Come on, 3 laps of the field and faster than that!"
+        description: "YYou have been promoted to Padawan!\nAfter completing your training among the monks, your newfound ambition has driven you to join the Jedi order, and you're learning with the best"
     },
 
     'Jedi': {
         image: Jedi,
         day: 24,
-        description: "You've been promoted to Jedi ! \nHaving become a Jedi, you now wield your sword like no other and you must stand up to the Empire as it will strike back. But do not weaken, you only have a few days left to achieve your goal!"
+        description: "You have been promoted to Jedi knight!\nYou've received the title of Jedi Knight after completing your training, Yoda was impressed by your progression (and you finally don't have that crappy haircut anymore).Congratulations !"
     },
+
+    'Jedi Master': {
+        image: JediMaster,
+        day: 30,
+        description: "You have been promoted to Jedi Master!\nAfter fighting against the Fap Side of the Force for 50 days, you now find yourself helping others start their journey, and are an example others look up to."
+    },
+
+    'Sorcerer Supreme': {
+        image: SorcererSupreme,
+        day: 50,
+        description: "You have been promoted to Sorcerer Supreme! \nYou've become the Sorcerer Supreme instead of Doctor Strange because of your incredible inner strenght and patience, so strong that people start to believe you're not from this world. Even Captain America is more horny than you. You now are a hero helping the universe."
+    },
+
+    'Colossus': {
+        image: Colossus,
+        day: 80,
+        description: "You have been promoted to Colossus!\nAfter defeating all enemies in your universe, you have become a legend known as Colossus, the man with balls of steel. New achievement : You have become a legend."
+    },
+
+    'Hercules': {
+        image: Hercules,
+        day: 110,
+        description: "You have been promoted to Hercules!\nPeople have started to compare you as Hercules as you have overcome all the trials of the universe and remain humble. You've starting to travel to others universe to help others become legends."
+    },
+
+    'Buddha': {
+        image: Buddha,
+        day: 150,
+        description: "You have been promoted to Buddha!\nAlthough entire planets started praying you as a god, you remind them that 6 monts ago you were a mere fapper, with  no motivation or self-esteem, and that you've simply done what others could also do. You inspire people all across the multiverse as a symbol of humility and success. This is it, you've reach the summit of self-awareness, and you have become the wisest person. I still want to ask : are you okay man ?"
+    }
 }
+
+// Thanks to @Gasrod and @Rogue for their creativity !
 
 export default awards
