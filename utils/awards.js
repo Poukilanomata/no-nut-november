@@ -1,11 +1,13 @@
 import award from '../styles/Awards.module.scss'
 import Image from 'next/image'
+import { useSelector } from 'react-redux'
+import { selectUser } from '../store/authSlice'
 
 function Top({img_url, title, day}) {
     return(
         <div className={award.title}>
             <Image src={img_url} alt='' className={award.image} height='30px' width='30px'/>
-            <span>{title}</span>
+            <span>{title}  </span>
             <span className={award.day}>{'Day ' + day}</span>
         </div>
     )
@@ -34,8 +36,9 @@ export default function Award({
     content,
     day
 }) {
+    let user = useSelector(selectUser)
     return(
-        <div className={award.container}>
+        <div className={`${award.container} ${user?.awards.includes(title)? award.with : award.without}`}>
             <Top img_url={img_url} title={title} day={day}/>
             <Main content={content} />
             <Footer />

@@ -40,11 +40,15 @@ export default async function handler(req, res) {
 
     if(req.body.holding === true) {
         var user = await Account.findOne({_id: decoded.userid})
+        var a = get_award(Date.now()/1000, user.fails_dates[user.fails_dates.length - 1])
+       
         await Account.updateOne({_id: decoded.userid}, {
             $set: {
                 last_validation: Date.now()/1000,
-                awards: get_award(Date.now()/1000, user.fails_dates[user.fails_dates.length - 1])
-            }  
+            },
+            $addToSet: {
+                awards: a
+            }
         })
         
         res.status(200).json({
