@@ -72,7 +72,7 @@ const awards =  {
     'Jedi Master': {
         image: JediMaster,
         day: 30,
-        description: "You have been promoted to Jedi Master!\nAfter fighting against the Fap Side of the Force for 50 days, you now find yourself helping others start their journey, and are an example others look up to."
+        description: "You have been promoted to Jedi Master!\nAfter fighting against the Fap Side of the Force for 30 days, you now find yourself helping others start their journey, and are an example others look up to."
     },
 
     'Sorcerer Supreme': {
@@ -95,7 +95,7 @@ const awards =  {
 
     'Buddha': {
         image: Buddha,
-        day: 150,
+        day: 180,
         description: "You have been promoted to Buddha!\nAlthough entire planets started praying you as a god, you remind them that 6 monts ago you were a mere fapper, with  no motivation or self-esteem, and that you've simply done what others could also do. You inspire people all across the multiverse as a symbol of humility and success. This is it, you've reach the summit of self-awareness, and you have become the wisest person. I still want to ask : are you okay man ?"
     }
 }
